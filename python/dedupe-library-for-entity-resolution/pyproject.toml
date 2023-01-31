@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "dedupe-library-for-entity-resolution"
+version = "0.1.0"
+description = ""
+authors = ["Bhuwan Prasad Upadhyay <bhuwan.upadhyay49@gmail.com>"]
+readme = "README.md"
+packages = [{include = "dedupe_library_for_entity_resolution"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+dedupe = "^2.0.22"
+unidecode = "^1.3.6"
+pandas = "^1.5.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
