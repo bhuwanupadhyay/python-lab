@@ -1,22 +1,30 @@
 package com.bhuwanupadhyay.codingproblems.contains_duplicate;
 
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
 
 class Solution3 {
 
     public boolean containsDuplicate(int[] nums) {
 
-        var sets = new HashSet<>();
+        Map<Integer, Integer> map = new HashMap<>();
 
         for (var num : nums) {
-            if (sets.contains(num)) {
+            var count = map.get(num);
+            if (count == null) {
+                map.put(num, 1);
+            } else {
+                map.put(num, ++count);
+            }
+        }
+
+        for (var entry : map.entrySet()) {
+            if (entry.getValue() > 1) {
                 return true;
             }
-            sets.add(num);
         }
 
         return false;
-
     }
 
 }

@@ -1,7 +1,6 @@
 package com.bhuwanupadhyay.codingproblems.contains_duplicate;
 
 import java.util.HashSet;
-
 import java.util.Set;
 
 public class Constraints {
@@ -31,11 +30,11 @@ public class Constraints {
     }
 
 
-    public static int[] duplicateElementsHavingArray(int maxLen, int minValue, int maxValue, int duplicateCount) {
+    public static int[] duplicateArray(int maxLen, int minValue, int maxValue, int noOfDuplicates) {
         int len = (int) (Math.random() * maxLen);
         Set<Integer> generated = new HashSet<>();
         int[] arr = new int[len];
-        for (int i = 0; i < len - duplicateCount; i++) {
+        for (int i = 0; i < len - noOfDuplicates; i++) {
             int num;
             do {
                 num = (int) (Math.random() * (maxValue - minValue) + minValue);
@@ -44,8 +43,8 @@ public class Constraints {
             generated.add(num);
         }
 
-        for (int i = 0; i < duplicateCount; i++) {
-            arr[len - duplicateCount + i] = arr[i];
+        for (int i = 0; i < noOfDuplicates; i++) {
+            arr[len - noOfDuplicates + i] = arr[i];
         }
         return arr;
     }
