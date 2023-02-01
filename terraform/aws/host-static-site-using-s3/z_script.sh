@@ -20,7 +20,6 @@ aws s3api create-bucket --bucket "$YOUR_DOMAIN-terraform" | jq
 
 case "$YOUR_OPTION" in
 apply)
-  aws s3 rm "$S3_BUCKET" --recursive
   terraform init -backend-config=terraform-backend.conf
   terraform "$YOUR_OPTION" -auto-approve
   aws --no-progress --delete s3 sync "$YOUR_PUBLIC_DIR" "$S3_BUCKET"

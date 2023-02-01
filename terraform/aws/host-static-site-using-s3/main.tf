@@ -66,7 +66,7 @@ resource "null_resource" "z_cf_distribution_id_log" {
     always_run = timestamp()
   }
   provisioner "local-exec" {
-    command = "echo '${module.s3-cloudfront-website.cf_distribution_id}' > ${path.module}/z_cf_distribution_id.log"
+    command = "echo '${module.s3-cloudfront-website.cf_distribution_id}' > ${path.cwd}/z_cf_distribution_id.log"
   }
 }
 
