@@ -52,6 +52,12 @@ class SolutionsTests {
     }
 
     @ParameterizedTest
+    @MethodSource("simple")
+    void checkSimpleSolution4(int[] input, boolean expected) {
+        assertEquals(expected, new Solution4().containsDuplicate(input));
+    }
+
+    @ParameterizedTest
     @MethodSource("constrains")
     void checkWithConstraintsSolution1(int[] input, boolean expected) {
         assertEquals(expected, new Solution1().containsDuplicate(input));
@@ -69,6 +75,13 @@ class SolutionsTests {
     @MethodSource("constrains")
     void checkWithConstraintsSolution3(int[] input, boolean expected) {
         assertEquals(expected, new Solution3().containsDuplicate(input));
+    }
+
+
+    @ParameterizedTest
+    @MethodSource("constrains")
+    void checkWithConstraintsSolution4(int[] input, boolean expected) {
+        assertEquals(expected, new Solution4().containsDuplicate(input));
     }
 
 

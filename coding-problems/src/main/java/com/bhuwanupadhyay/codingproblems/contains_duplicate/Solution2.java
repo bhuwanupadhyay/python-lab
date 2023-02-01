@@ -1,16 +1,17 @@
 package com.bhuwanupadhyay.codingproblems.contains_duplicate;
 
-import java.util.HashSet;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 class Solution2 {
 
     public boolean containsDuplicate(int[] nums) {
-        var sets = new HashSet<>();
-        for (var num : nums) {
-            if (sets.contains(num)) {
+        Arrays.sort(nums);
+        for (var i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
                 return true;
             }
-            sets.add(num);
         }
         return false;
     }
