@@ -1,8 +1,6 @@
 package com.bhuwanupadhyay.codingproblems.contains_duplicate;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Set;
 
 class Solution2 {
 
