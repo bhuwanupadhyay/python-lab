@@ -7,8 +7,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static com.bhuwanupadhyay.codingproblems.contains_duplicate.Constraints.duplicateArray;
-import static com.bhuwanupadhyay.codingproblems.contains_duplicate.Constraints.uniqueArray;
+import static com.bhuwanupadhyay.codingproblems.TestUtils.duplicateArray;
+import static com.bhuwanupadhyay.codingproblems.TestUtils.uniqueArray;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SolutionsTests {

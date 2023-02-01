@@ -1,9 +1,9 @@
-package com.bhuwanupadhyay.codingproblems.contains_duplicate;
+package com.bhuwanupadhyay.codingproblems;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Constraints {
+public class TestUtils {
 
     public static int[] anyArray(int maxLen, int minValue, int maxValue) {
         int len = (int) (Math.random() * maxLen);
