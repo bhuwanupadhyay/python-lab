@@ -5,7 +5,7 @@ set -ue
 DIR="$(cd "$(dirname "$0")" && pwd)"
 
 YOUR_OPTION=${1:-apply}
-YOUR_PUBLIC_DIR=${2:-$PWD/hugo/public/}
+YOUR_PUBLIC_DIR=${2:-$PWD/public/}
 YOUR_DOMAIN=${3:-bhuwanupadhyay.com}
 
 : "$YOUR_OPTION"

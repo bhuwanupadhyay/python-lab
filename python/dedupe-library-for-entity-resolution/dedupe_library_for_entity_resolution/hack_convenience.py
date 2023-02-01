@@ -36,9 +36,8 @@ def _mark_pair(deduper: dedupe.api.ActiveMatching, labeled_pair: LabeledPair) ->
     deduper.mark_pairs(examples)
 
 
-def console_label(deduper: dedupe.api.ActiveMatching, positive=5, negative=5) -> None:
+def console_label(deduper: dedupe.api.ActiveMatching, positive=10, negative=10) -> None:
     finished = False
-    use_previous = False
     fields = unique(var.field for var in deduper.data_model.primary_variables)
 
     buffer_len = 1  # Max number of previous operations
@@ -49,21 +48,13 @@ def console_label(deduper: dedupe.api.ActiveMatching, positive=5, negative=5) ->
     n_distinct = len(deduper.training_pairs["distinct"])
 
     while not finished:
-        if use_previous:
-            record_pair, label = labeled.pop(0)
-            if label == "match":
-                n_match -= 1
-            elif label == "distinct":
-                n_distinct -= 1
-            use_previous = False
-        else:
-            try:
-                if not unlabeled:
-                    unlabeled = deduper.uncertain_pairs()
+        try:
+            if not unlabeled:
+                unlabeled = deduper.uncertain_pairs()
 
-                record_pair = unlabeled.pop()
-            except IndexError:
-                break
+            record_pair = unlabeled.pop()
+        except IndexError:
+            break
 
         for record in record_pair:
             for field in fields:
@@ -93,9 +84,6 @@ def console_label(deduper: dedupe.api.ActiveMatching, positive=5, negative=5) ->
         elif user_input == "f":
             _print("Finished labeling")
             finished = True
-        elif user_input == "p":
-            use_previous = True
-            unlabeled.append(record_pair)
 
         while len(labeled) > buffer_len:
             _mark_pair(deduper, labeled.pop())
