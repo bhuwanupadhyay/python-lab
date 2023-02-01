@@ -3,7 +3,6 @@ package com.bhuwanupadhyay.codingproblems.contains_duplicate;
 class Solution1 {
 
     public boolean containsDuplicate(int[] nums) {
-
         for (var i = 0; i < nums.length; i++) {
             for (var j = 0; j < nums.length; j++) {
                 if (i != j && nums[i] == nums[j]) {
@@ -11,9 +10,7 @@ class Solution1 {
                 }
             }
         }
-
         return false;
-
     }
 
 }
